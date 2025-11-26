@@ -9,6 +9,7 @@ import footnote from 'markdown-it-footnote'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItToc from 'markdown-it-toc-done-right'
 import markdownDeflist from 'markdown-it-deflist'
+import markdownItAttrs from 'markdown-it-attributes'
 
 import mk from './katex'
 import chart from './chart'
@@ -73,6 +74,8 @@ const DEFAULT_OPTIONS = {
     listType: 'ul'
   }
 }
+
+console.log(markdownItAttrs)
 
 export default class PreviewPage extends React.Component {
   constructor(props) {
@@ -235,6 +238,7 @@ export default class PreviewPage extends React.Component {
           ...DEFAULT_OPTIONS.toc,
           ...toc
         })
+        .use(markdownItAttrs)
     }
 
     // Theme already applied
